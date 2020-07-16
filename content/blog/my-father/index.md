@@ -1,0 +1,49 @@
+---
+title: From Vietnam to Canada
+date: "2018-06-18T22:12:03.284Z"
+description: "A Father's Day reflection." 
+---
+My dad left Vietnam hiding in the bottom of a fishing boat in 1981.
+
+## It's complicated
+ 
+It's complicated. He grew up in a middle class, academic background in the US-created and US-propped South Vietnamese state. His siblings were doctors and teachers in the South and he was a teacher at 23 when he left. He was taught by Americans in school and got all the baggage that comes with that. 
+
+The American propaganda machine was a powerful one that manipulated different groups of people toward anticommunist panic before and throughout the war, because national unity & a united front spell disaster for imperialist efforts. Those sentiments could not and did not simply disappear after the War of Liberation was won. 
+
+## At Sea
+
+Their fishing boat drifted at sea for two months. It was pirated twice before they landed on Malaysian shores, whose government had already taken in more refugees than it could handle. They were given food and water and towed back out. 
+
+Eventually, they landed in Indonesia, where my dad stayed in a refugee camp for six months with his brother until they got a plane to Canada, sponsored by another brother in Quebec. He told me that when he got here, he was given twenty bucks and a pair of jeans.
+
+## In Canada
+My dad spent his first few years in Canada as a sort of live-in manservant for an old British couple outside of Kingston. 
+
+He says that Mrs Manson used to get him to bake for them all the time, and now he can't stand sweets. I've heard fewer stories about Mr Manson whose Alzheimer's meant he passed away earlier. 
+
+Through the Mansons' connections in the city, my dad was able to get into a diploma programming course. This was in the mid-80s, when the first Windows OS and the first Macintosh were just coming around. It was early in the software industry and my dad rode that as far as it could take him—after a first few jobs, he stayed at a company for 25 years. This cemented my middle-class upbringing.
+
+## My parents
+
+My parents met in the early 90s in a pagoda, a Buddhist temple. He was 34 and my mom is 12 years younger than him. She was nervous about dating an old man at first, but I think those love letters and late night phone calls helped. 
+
+They got married in 1994 and had me the next year, and my brother seven years later. I grew up in Mississauga, Ontario which, despite being one of the largest cities in Canada, is almost entirely suburban monotony with a smattering of immigrant neighbourhoods, and of course Square One, the obscenely large shopping mall.
+
+## The journey
+
+When I think about Father's Day, I think about my father's path and the hardships he has endured, and how they are related to my path and my hardships. 
+
+My dad is 62 this weekend. There are parts of his life that I don't know about yet, and there are parts that I probably won't ever know unless I can get him to sit down and write that book he's been talking about for years. 
+
+I wrote this post expecting to have a bigger point at the end, but I think it's okay if this one's about the journey. Understanding my dad's journey helps me understand my own, and that's important enough.
+
+--- 
+
+### Addendum: Bonus story
+
+We're at dinner for my twenty-third birthday and my dad just told me about his twenty-third birthday, which he spent on a beach in a refugee camp in Indonesia with his brother. 
+
+They had one pair of shorts and one pair of pants between them. My uncle wore the pants when he had to see patients and my dad when he was teaching, and the other brother would wear the shorts and go swimming.
+
+My dad said I'm doing a bit better for myself and I think I have to agree.

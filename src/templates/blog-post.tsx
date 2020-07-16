@@ -18,25 +18,45 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         description={post.frontmatter.description || post.excerpt}
       />
       <article>
-        <header>
+        <header
+          style={{
+            marginBottom: rhythm(1),
+          }}
+        >
+          <p
+            style={{
+              marginTop: rhythm(0.5),
+              marginBottom: rhythm(0.5),
+              ...scale(-1 / 5),
+              display: `block`,
+            }}
+          >
+            {post.frontmatter.date}
+          </p>
           <h1
             style={{
-              marginTop: rhythm(1),
+              marginTop: rhythm(0),
               marginBottom: 0,
             }}
           >
             {post.frontmatter.title}
           </h1>
+
           <p
             style={{
-              ...scale(-1 / 5),
-              display: `block`,
-              marginBottom: rhythm(1),
+              marginTop: rhythm(0.5),
+              marginBottom: 0,
+              fontStyle: "italic",
             }}
           >
-            {post.frontmatter.date}
+            {post.frontmatter.description}
           </p>
         </header>
+        <hr
+          style={{
+            marginBottom: rhythm(1),
+          }}
+        />
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
           style={{

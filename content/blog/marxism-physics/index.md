@@ -1,0 +1,18 @@
+---
+title: Learning Marxism as a student of physics
+date: "2020-07-11T22:12:03.284Z"
+description: "A tale of two sciences."
+---
+Learning Marxism makes me feel giddy, just like my physics classes did in university. 
+
+It's *science*. Both describe the mechanics of phenomena and relationships that I experience and interact with every day, in a formalized and systematic way. There's a beauty to that.
+
+The big difference for me is that learning physics in a university in a centre of the world capitalist system is training to serve capital. It's training to participate in building and reinforcing machineries of exploitation and oppression. 
+
+Access to studying physics, let alone applying it in research or industry, is reserved for a certain class of people. In a capitalist society, this practice rarely sits in the interests of the masses.
+
+Marxism, on the other hand, is a science that has been taught and learned and turned into practice by billions of the poorest people in the world. It's a science that tells people their society is knowable, and it is within their grasp to change it.
+
+My people learned Marxism under moonlight after backbreaking days working fields. They used Marxism to comprehend the world and their society and the sources of their oppression and exploitation. Then they used those ideas to inform their revolutionary struggle. They used Marxism and made their society behave the way they wanted it to behave.
+
+That's something that learning physics never gave me. Its theories never empowered me to change the world. Marxism doesn't just empower us to change the world - it demands it.

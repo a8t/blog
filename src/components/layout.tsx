@@ -4,11 +4,8 @@ import { Link } from "gatsby"
 import { rhythm, scale } from "../utils/typography"
 
 const Layout = ({ location, title, children }) => {
-  const rootPath = `${__PATH_PREFIX__}/`
-  let header
-
-  if (location.pathname === rootPath) {
-    header = (
+  const header =
+    location.pathname === "/" ? (
       <h1
         style={{
           ...scale(1.5),
@@ -26,9 +23,7 @@ const Layout = ({ location, title, children }) => {
           {title}
         </Link>
       </h1>
-    )
-  } else {
-    header = (
+    ) : (
       <h3
         style={{
           fontFamily: `Montserrat, sans-serif`,
@@ -46,7 +41,7 @@ const Layout = ({ location, title, children }) => {
         </Link>
       </h3>
     )
-  }
+
   return (
     <div
       style={{
@@ -58,11 +53,11 @@ const Layout = ({ location, title, children }) => {
     >
       <header>{header}</header>
       <main>{children}</main>
-      <footer>
+      {/* <footer>
         © {new Date().getFullYear()}, Built with
         {` `}
         <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </footer>
+      </footer> */}
     </div>
   )
 }
