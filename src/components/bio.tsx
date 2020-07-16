@@ -54,8 +54,8 @@ const Bio = () => {
       />
       <p>
         Written by <strong>{author.name}</strong>. All thoughts posted here are
-        mine, and are not indicative of opinions any organization or group to
-        which I affiliate.
+        mine, and are not indicative of positions held by any organization or
+        group to which I affiliate.
       </p>
     </div>
   )
