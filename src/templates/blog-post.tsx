@@ -20,53 +20,26 @@ const BlogPostTemplate = ({ data: { post, site }, pageContext, location }) => {
         description={post.frontmatter.description || post.excerpt}
       />
       <article>
-        <header
-          style={{
-            marginBottom: rhythm(1),
-          }}
-        >
-          <p
-            style={{
-              marginTop: rhythm(0.5),
-              marginBottom: rhythm(0.5),
-              ...scale(-1 / 5),
-              display: `block`,
-            }}
-          >
+        <header className="mb-4">
+          <p className="my-4 block text-sm text-gray-500">
             {post.frontmatter.date}
           </p>
-          <h1
-            style={{
-              marginTop: rhythm(0),
-              marginBottom: 0,
-            }}
-          >
-            {post.frontmatter.title}
-          </h1>
+          <h1 className="text-4xl text-gray-900">{post.frontmatter.title}</h1>
 
-          <p
-            style={{
-              marginTop: rhythm(0.5),
-              marginBottom: 0,
-              fontStyle: "italic",
-            }}
-          >
+          <p className="italic mb-8 mt-6 text-gray-500">
             {post.frontmatter.description}
           </p>
         </header>
-        <hr
-          style={{
-            marginBottom: rhythm(1),
-          }}
-        />
-        <MDXProvider components={{ Separator }}>
-          <MDXRenderer>{post.body}</MDXRenderer>
-        </MDXProvider>
-        <hr
-          style={{
-            marginBottom: rhythm(1),
-          }}
-        />
+        <hr className="mb-8 bg-gray-300" style={{ height: 1 }} />
+
+        <div className="blog-post">
+          <MDXProvider components={{ Separator }}>
+            <MDXRenderer>{post.body}</MDXRenderer>
+          </MDXProvider>
+        </div>
+
+        <hr className="mb-8 bg-gray-300" style={{ height: 1 }} />
+
         <footer>
           <Bio />
         </footer>
@@ -82,17 +55,38 @@ const BlogPostTemplate = ({ data: { post, site }, pageContext, location }) => {
             padding: 0,
           }}
         >
-          <li>
+          <li className="w-1/2 h-full flex justify-end items-start">
             {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
+              <Link
+                to={previous.fields.slug}
+                rel="prev"
+                tabIndex={1}
+                className="flex items-center hover:bg-cool-gray-50 focus:bg-cool-gray-50 p-4"
+              >
+                <span className="mr-3">←</span>
+                <div className="flex flex-col items-end">
+                  <span className="text-xs text-gray-400">Previous</span>
+                  <span className="text-md text-gray-700">
+                    {previous.frontmatter.title}
+                  </span>
+                </div>
               </Link>
             )}
           </li>
-          <li>
+          <li className="w-1/2 h-full">
             {next && (
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
+              <Link
+                to={next.fields.slug}
+                rel="next"
+                className="flex items-center hover:bg-cool-gray-50 focus:bg-cool-gray-50 p-4"
+              >
+                <div className="flex flex-col">
+                  <span className="text-xs text-gray-400">Next</span>
+                  <span className="text-md text-gray-700">
+                    {next.frontmatter.title}{" "}
+                  </span>
+                </div>
+                <span className="ml-3">→</span>
               </Link>
             )}
           </li>

@@ -1,7 +1,9 @@
 import React from "react"
 import { Link } from "gatsby"
+import "./layout.css"
 
 import { rhythm, scale } from "../utils/typography"
+import Header from "./header"
 
 const Layout = ({ location, title, children }) => {
   const header =
@@ -9,9 +11,9 @@ const Layout = ({ location, title, children }) => {
       <h1
         style={{
           ...scale(1.5),
-          marginBottom: rhythm(1.5),
           marginTop: 0,
         }}
+        className="mb-8"
       >
         <Link
           style={{
@@ -43,22 +45,25 @@ const Layout = ({ location, title, children }) => {
     )
 
   return (
-    <div
-      style={{
-        marginLeft: `auto`,
-        marginRight: `auto`,
-        maxWidth: rhythm(24),
-        padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-      }}
-    >
-      <header>{header}</header>
-      <main>{children}</main>
-      {/* <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </footer> */}
-    </div>
+    <>
+      <Header />
+
+      <div>
+        {/* <header style={{ display: "flex", alignItems: "flex-end" }}>
+        {header} <Link to="about">about</Link>
+      </header> */}
+        <main
+          style={{
+            marginLeft: `auto`,
+            marginRight: `auto`,
+            maxWidth: rhythm(24),
+            padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+          }}
+        >
+          {children}
+        </main>
+      </div>
+    </>
   )
 }
 
