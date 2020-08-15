@@ -173,16 +173,16 @@ export default function Header() {
           </div>
           <nav className="hidden md:flex space-x-10">
             <Link
-              to="/"
-              className="text-base leading-6 font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition ease-in-out duration-150"
-            >
-              Posts
-            </Link>
-            <Link
               to="/chords"
               className="text-base leading-6 font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition ease-in-out duration-150"
             >
               Song chords
+            </Link>
+            <Link
+              to="/blog"
+              className="text-base leading-6 font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition ease-in-out duration-150"
+            >
+              Blog
             </Link>
           </nav>
         </div>

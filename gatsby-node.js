@@ -72,7 +72,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     createNodeField({
       name: `slug`,
       node,
-      value: sourceInstanceName + createFilePath({ node, getNode }),
+      value: "/" + sourceInstanceName + createFilePath({ node, getNode }),
     })
   }
 }
