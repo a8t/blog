@@ -1,10 +1,10 @@
 module.exports = {
   siteMetadata: {
-    title: `some thoughts`,
+    title: `april theses`,
     author: {
       name: `Andy Tran`,
     },
-    description: `Just some thoughts.`,
+    description: `april theses bring october revolutions`,
     siteUrl: `https://blog.andytran.ca`,
   },
   plugins: [
