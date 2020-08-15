@@ -6,7 +6,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Chords, Lyrics } from "../components/chords"
+import { Chords, Lyrics, Section } from "../components/chords"
 
 const ChordsPostTemplate = ({
   data: { post, site },
@@ -31,7 +31,7 @@ const ChordsPostTemplate = ({
         </header>
         <hr className="mb-8 bg-gray-300" style={{ height: 1 }} />
 
-        <MDXProvider components={{ Chords, Lyrics }}>
+        <MDXProvider components={{ Chords, Lyrics, Section }}>
           <MDXRenderer>{post.body}</MDXRenderer>
         </MDXProvider>
 

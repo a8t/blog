@@ -46,22 +46,14 @@ const BlogPostTemplate = ({ data: { post, site }, pageContext, location }) => {
       </article>
 
       <nav>
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
-          <li className="w-1/2 h-full flex justify-end items-start">
-            {previous && (
+        <ul className="flex list-none p-0 h-30">
+          {previous ? (
+            <li className="w-1/2 h-full flex justify-end items-start">
               <Link
                 to={previous.fields.slug}
                 rel="prev"
                 tabIndex={1}
-                className="flex items-center hover:bg-cool-gray-50 focus:bg-cool-gray-50 p-4"
+                className="flex h-full items-center hover:bg-cool-gray-50 focus:bg-cool-gray-50 p-4"
               >
                 <span className="mr-3">←</span>
                 <div className="flex flex-col items-end">
@@ -71,14 +63,16 @@ const BlogPostTemplate = ({ data: { post, site }, pageContext, location }) => {
                   </span>
                 </div>
               </Link>
-            )}
-          </li>
-          <li className="w-1/2 h-full">
-            {next && (
+            </li>
+          ) : (
+            <div className="w-1/2" />
+          )}
+          {next && (
+            <li className="w-1/2 h-full">
               <Link
                 to={next.fields.slug}
                 rel="next"
-                className="flex items-center hover:bg-cool-gray-50 focus:bg-cool-gray-50 p-4"
+                className="flex items-center h-full p-4 hover:bg-cool-gray-50 focus:bg-cool-gray-50"
               >
                 <div className="flex flex-col">
                   <span className="text-xs text-gray-400">Next</span>
@@ -88,8 +82,8 @@ const BlogPostTemplate = ({ data: { post, site }, pageContext, location }) => {
                 </div>
                 <span className="ml-3">→</span>
               </Link>
-            )}
-          </li>
+            </li>
+          )}
         </ul>
       </nav>
     </Layout>

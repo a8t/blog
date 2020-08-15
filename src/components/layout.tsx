@@ -49,7 +49,7 @@ const Layout = ({ location, title, children }) => {
       <Header />
 
       <div>
-        <main className="container p-4 sm:p-6 mx-auto  xl:max-w-xl">
+        <main className="container p-4 sm:p-6 mx-auto  lg:max-w-xl">
           {children}
         </main>
       </div>
