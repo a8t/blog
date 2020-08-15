@@ -1,3 +1,4 @@
+content/chords/*.mdx
 .cache
 package.json
 package-lock.json

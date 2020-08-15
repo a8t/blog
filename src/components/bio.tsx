@@ -33,12 +33,7 @@ const Bio = () => {
 
   const { author } = data.site.siteMetadata
   return (
-    <div
-      style={{
-        display: `flex`,
-        marginBottom: rhythm(2.5),
-      }}
-    >
+    <div className="flex mt-12 mb-16 max-w-md mx-auto">
       <Image
         fixed={data.avatar.childImageSharp.fixed}
         alt={author.name}
@@ -52,10 +47,10 @@ const Bio = () => {
           borderRadius: `50%`,
         }}
       />
-      <p>
+      <p className="text-gray-500">
         Written by <strong>{author.name}</strong>. All thoughts posted here are
         mine, and are not indicative of positions held by any organization or
-        group to which I affiliate.
+        group I affiliate with.
       </p>
     </div>
   )

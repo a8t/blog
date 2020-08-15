@@ -49,17 +49,7 @@ const Layout = ({ location, title, children }) => {
       <Header />
 
       <div>
-        {/* <header style={{ display: "flex", alignItems: "flex-end" }}>
-        {header} <Link to="about">about</Link>
-      </header> */}
-        <main
-          style={{
-            marginLeft: `auto`,
-            marginRight: `auto`,
-            maxWidth: rhythm(24),
-            padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-          }}
-        >
+        <main className="container p-4 sm:p-6 mx-auto  xl:max-w-xl">
           {children}
         </main>
       </div>
