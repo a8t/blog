@@ -12,7 +12,7 @@ const ChordsIndex = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="All posts" />
+      <SEO title="All chords" />
       <h1 className="text-5xl sm:text-6xl my-12 text-gray-500">april theses</h1>
       <section className="pb-8">
         <hr style={{ height: 1 }} className="mb-4" />

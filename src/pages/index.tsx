@@ -21,7 +21,7 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="All posts" />
+      <SEO title="April heses" />
       <h1 className="text-5xl sm:text-6xl my-12 text-gray-500">april theses</h1>
       <section className="md:grid grid-cols-2">
         {byType.map(([type, nodes]) => (
