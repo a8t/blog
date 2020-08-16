@@ -7,7 +7,6 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Separator from "../components/separator"
-import { rhythm, scale } from "../utils/typography"
 
 const BlogPostTemplate = ({ data: { post, site }, pageContext, location }) => {
   const siteTitle = site.siteMetadata.title
@@ -24,7 +23,9 @@ const BlogPostTemplate = ({ data: { post, site }, pageContext, location }) => {
           <p className="my-4 block text-sm text-gray-500">
             {post.frontmatter.date}
           </p>
-          <h1 className="text-4xl text-gray-900">{post.frontmatter.title}</h1>
+          <h1 className="text-4xl text-gray-900 font-extrabold leading-tight">
+            {post.frontmatter.title}
+          </h1>
 
           <p className="italic mb-8 mt-6 text-gray-500">
             {post.frontmatter.description}
@@ -32,7 +33,7 @@ const BlogPostTemplate = ({ data: { post, site }, pageContext, location }) => {
         </header>
         <hr className="mb-8 bg-gray-300" style={{ height: 1 }} />
 
-        <div className="blog-post">
+        <div className="prose prose-sm sm:prose lg:prose-lg xl:prose-xl">
           <MDXProvider components={{ Separator }}>
             <MDXRenderer>{post.body}</MDXRenderer>
           </MDXProvider>

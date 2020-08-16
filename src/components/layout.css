@@ -2,10 +2,18 @@
 
 @import "tailwindcss/components";
 
-.blog-post {
-  * {
-    @apply mb-6;
-  }
+a {
+  @apply text-teal-700;
 }
 
 @import "tailwindcss/utilities";
+
+.page-header {
+  @apply text-5xl text-gray-500 font-black;
+}
+
+@screen sm {
+  .page-header {
+    @apply text-6xl;
+  }
+}

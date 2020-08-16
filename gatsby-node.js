@@ -10,19 +10,34 @@ exports.createPages = async ({ graphql, actions }) => {
   const result = await graphql(
     `
       {
-        allMdx(
+        blogPosts: allMdx(
           sort: { fields: [frontmatter___date], order: DESC }
+          filter: { fields: { mdxNodeType: { eq: "blog" } } }
           limit: 1000
         ) {
-          edges {
-            node {
-              fields {
-                slug
-                mdxNodeType
-              }
-              frontmatter {
-                title
-              }
+          nodes {
+            fields {
+              slug
+              mdxNodeType
+            }
+            frontmatter {
+              title
+            }
+          }
+        }
+
+        chordPosts: allMdx(
+          sort: { fields: [frontmatter___date], order: DESC }
+          filter: { fields: { mdxNodeType: { eq: "chords" } } }
+          limit: 1000
+        ) {
+          nodes {
+            fields {
+              slug
+              mdxNodeType
+            }
+            frontmatter {
+              title
             }
           }
         }
@@ -34,27 +49,24 @@ exports.createPages = async ({ graphql, actions }) => {
     throw result.errors
   }
 
-  // Create blog posts pages.
-  const posts = result.data.allMdx.edges
+  const makePagesFromNodes = (nodes, component) => {
+    nodes.forEach((post, index, posts) => {
+      const previous = index === posts.length - 1 ? null : posts[index + 1]
+      const next = index === 0 ? null : posts[index - 1]
 
-  posts.forEach((post, index) => {
-    const previous = index === posts.length - 1 ? null : posts[index + 1].node
-    const next = index === 0 ? null : posts[index - 1].node
-
-    const component = { blog: blogPost, chords: chordsPost }[
-      post.node.fields.mdxNodeType
-    ]
-
-    createPage({
-      path: post.node.fields.slug,
-      component,
-      context: {
-        slug: post.node.fields.slug,
-        previous,
-        next,
-      },
+      createPage({
+        path: post.fields.slug,
+        component,
+        context: {
+          slug: post.fields.slug,
+          previous,
+          next,
+        },
+      })
     })
-  })
+  }
+  makePagesFromNodes(result.data.blogPosts.nodes, blogPost)
+  makePagesFromNodes(result.data.chordPosts.nodes, chordsPost)
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
