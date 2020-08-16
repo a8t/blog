@@ -3,10 +3,10 @@ import { Link, graphql } from "gatsby"
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Chords, Lyrics, Section } from "../components/chords"
+import AutoscrollControll from "../components/AutoscrollControl"
 
 const ChordsPostTemplate = ({
   data: { post, site },
@@ -22,6 +22,9 @@ const ChordsPostTemplate = ({
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
+
+      <AutoscrollControll />
+
       <article>
         <header className="mb-4">
           <p className="my-4 block text-sm text-gray-500">
