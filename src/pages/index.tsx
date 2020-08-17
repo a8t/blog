@@ -18,19 +18,20 @@ const SeeAll = ({ to }) => (
   </Link>
 )
 
-const BlogIndex = ({ data, location }) => {
+const Homepage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
-  const posts = data.allMdx.edges
-
-  const byType = _.toPairs(_.groupBy(posts, "node.fields.mdxNodeType"))
+  const { blogPosts, chordPosts } = data
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="April heses" />
+      <SEO title="April Theses" />
       <Header />
 
       <section className="md:grid grid-cols-2">
-        {byType.map(([type, nodes]) => (
+        {[
+          ["chords", chordPosts],
+          ["blog", blogPosts],
+        ].map(([type, { nodes }]) => (
           <section className="pb-8">
             <hr style={{ height: 1 }} className="mb-4" />
             <header className="text-sm text-gray-500 mb-8 flex sm:block">
@@ -45,7 +46,7 @@ const BlogIndex = ({ data, location }) => {
                 <SeeAll to={type} />
               </div>
             </header>
-            {nodes.slice(0, 3).map(({ node }) => (
+            {nodes.slice(0, 3).map(node => (
               <Listing
                 to={node.fields.slug}
                 title={node.frontmatter.title || node.fields.slug}
@@ -64,7 +65,7 @@ const BlogIndex = ({ data, location }) => {
   )
 }
 
-export default BlogIndex
+export default Homepage
 
 export const pageQuery = graphql`
   query {
@@ -73,19 +74,40 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-            mdxNodeType
-          }
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            description
-          }
+    blogPosts: allMdx(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { fields: { mdxNodeType: { eq: "blog" } } }
+      limit: 1000
+    ) {
+      nodes {
+        excerpt
+        fields {
+          slug
+          mdxNodeType
+        }
+        frontmatter {
+          date(formatString: "MMMM DD, YYYY")
+          title
+          description
+        }
+      }
+    }
+
+    chordPosts: allMdx(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { fields: { mdxNodeType: { eq: "chords" } } }
+      limit: 1000
+    ) {
+      nodes {
+        excerpt
+        fields {
+          slug
+          mdxNodeType
+        }
+        frontmatter {
+          date(formatString: "MMMM DD, YYYY")
+          title
+          description
         }
       }
     }

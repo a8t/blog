@@ -39,7 +39,7 @@ const BlogPostTemplate = ({ data: { post, site }, pageContext, location }) => {
           </MDXProvider>
         </div>
 
-        <hr className="mb-8 bg-gray-300" style={{ height: 1 }} />
+        <hr className="mb-8 bg-gray-300 mt-8" style={{ height: 1 }} />
 
         <footer>
           <Bio />
