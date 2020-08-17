@@ -1,12 +1,19 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link, graphql } from "gatsby"
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Chords, Lyrics, Section } from "../components/chords"
+import {
+  Chords,
+  Lyrics,
+  Section,
+  TransposeProvider,
+  TransposeControl,
+} from "../components/chords"
+import AutoscrollControl from "../components/AutoscrollControl"
+import ChordControls from "../components/ChordControls"
 
 const ChordsPostTemplate = ({
   data: { post, site },
@@ -22,6 +29,7 @@ const ChordsPostTemplate = ({
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
+
       <article>
         <header className="mb-4">
           <p className="my-4 block text-sm text-gray-500">
@@ -31,9 +39,15 @@ const ChordsPostTemplate = ({
         </header>
         <hr className="mb-8 bg-gray-300" style={{ height: 1 }} />
 
-        <MDXProvider components={{ Chords, Lyrics, Section }}>
-          <MDXRenderer>{post.body}</MDXRenderer>
-        </MDXProvider>
+        <TransposeProvider>
+          <ChordControls>
+            <AutoscrollControl />
+            <TransposeControl />
+          </ChordControls>
+          <MDXProvider components={{ Chords, Lyrics, Section }}>
+            <MDXRenderer>{post.body}</MDXRenderer>
+          </MDXProvider>
+        </TransposeProvider>
 
         <hr className="my-8 bg-gray-300" style={{ height: 1 }} />
       </article>
