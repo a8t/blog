@@ -95,7 +95,7 @@ export default function Navbar() {
                   <div>
                     <nav className="grid grid-cols-1 gap-7">
                       <Link
-                        to="/"
+                        to="/blog"
                         className="-m-3 p-3 flex items-center space-x-4 rounded-lg hover:bg-gray-50 transition ease-in-out duration-150"
                       >
                         <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-teal-700 text-white">

@@ -2,6 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
+import classNames from "classnames"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -47,41 +48,43 @@ const BlogPostTemplate = ({ data: { post, site }, pageContext, location }) => {
       </article>
 
       <nav>
-        <ul className="flex list-none p-0 h-30">
+        <ul className="grid grid-cols-2 gap-2 list-none">
           {previous ? (
-            <li className="w-1/2 h-full flex justify-end items-start">
+            <li className="h-full flex justify-end items-start">
               <Link
                 to={previous.fields.slug}
                 rel="prev"
                 tabIndex={1}
-                className="flex h-full items-center hover:bg-cool-gray-50 focus:bg-cool-gray-50 p-4"
+                className={classNames(
+                  "flex flex-col items-end",
+                  "p-4 h-full",
+                  "bg-cool-gray-50 hover:bg-cool-gray-100 focus:bg-cool-gray-100"
+                )}
               >
-                <span className="mr-3">←</span>
-                <div className="flex flex-col items-end">
-                  <span className="text-xs text-gray-400">Previous</span>
-                  <span className="text-md text-gray-700">
-                    {previous.frontmatter.title}
-                  </span>
-                </div>
+                <span className="text-xs text-gray-400">Previous</span>
+                <span className="text-md text-gray-700 text-right">
+                  {previous.frontmatter.title}
+                </span>
               </Link>
             </li>
           ) : (
             <div className="w-1/2" />
           )}
           {next && (
-            <li className="w-1/2 h-full">
+            <li className=" h-full">
               <Link
                 to={next.fields.slug}
                 rel="next"
-                className="flex items-center h-full p-4 hover:bg-cool-gray-50 focus:bg-cool-gray-50"
+                className={classNames(
+                  "flex flex-col items-start",
+                  "p-4 h-full",
+                  "bg-cool-gray-50 hover:bg-cool-gray-100 focus:bg-cool-gray-100 "
+                )}
               >
-                <div className="flex flex-col">
-                  <span className="text-xs text-gray-400">Next</span>
-                  <span className="text-md text-gray-700">
-                    {next.frontmatter.title}{" "}
-                  </span>
-                </div>
-                <span className="ml-3">→</span>
+                <span className="text-xs text-gray-400">Next</span>
+                <span className="text-md text-gray-700">
+                  {next.frontmatter.title}
+                </span>
               </Link>
             </li>
           )}
