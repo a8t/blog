@@ -1,6 +1,60 @@
-import React from "react"
+import React, { useContext, useState } from "react"
+import { Chord, Interval } from "@tonaljs/tonal"
+import ControlButton from "./ControlButton"
+import { FaTimesCircle, FaMinusCircle, FaPlusCircle } from "react-icons/fa"
+
+const TransposeContext = React.createContext({
+  semitones: 0,
+  reset: () => null,
+  increment: () => null,
+  decrement: () => null,
+})
+
+const useTransposeContext = () => useContext(TransposeContext)
+
+export function TransposeProvider({ children }) {
+  const [semitones, setSemitones] = useState(0)
+  const reset = () => setSemitones(0)
+  const increment = () => setSemitones((semitones + 1) % 12)
+  const decrement = () => setSemitones((semitones - 1) % 12)
+  return (
+    <TransposeContext.Provider
+      value={{ semitones, reset, increment, decrement }}
+    >
+      {children}
+    </TransposeContext.Provider>
+  )
+}
+
+export function TransposeControl() {
+  const { semitones, reset, increment, decrement } = useTransposeContext()
+
+  const isUnison = semitones === 0
+
+  return (
+    <div className="flex fixed right-4 bottom-4 sm:right-11 sm:bottom-24 space-x-4 items-center">
+      <span className="text-gray-500 text-sm">Transpose</span>
+
+      <ControlButton onClick={reset} disabled={isUnison}>
+        <FaTimesCircle className="w-8 h-8" />
+      </ControlButton>
+      <ControlButton onClick={decrement}>
+        <FaMinusCircle className="w-8 h-8" />
+      </ControlButton>
+      <div className="text-xl w-8 text-center">{semitones}</div>
+      <ControlButton onClick={increment}>
+        <FaPlusCircle className="w-8 h-8" />
+      </ControlButton>
+    </div>
+  )
+}
 
 export function Chords({ children }) {
+  const { semitones } = useTransposeContext()
+
+  const chords = children.replace(/\w+/g, chord =>
+    Chord.transpose(chord, Interval.fromSemitones(semitones))
+  )
   return (
     <span
       className="
@@ -9,7 +63,7 @@ export function Chords({ children }) {
         sm:mt-4 sm:text-md
       "
     >
-      {children}
+      {chords}
     </span>
   )
 }

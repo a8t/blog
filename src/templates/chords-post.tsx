@@ -5,7 +5,13 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Chords, Lyrics, Section } from "../components/chords"
+import {
+  Chords,
+  Lyrics,
+  Section,
+  TransposeProvider,
+  TransposeControl,
+} from "../components/chords"
 import AutoscrollControll from "../components/AutoscrollControl"
 
 const ChordsPostTemplate = ({
@@ -34,9 +40,12 @@ const ChordsPostTemplate = ({
         </header>
         <hr className="mb-8 bg-gray-300" style={{ height: 1 }} />
 
-        <MDXProvider components={{ Chords, Lyrics, Section }}>
-          <MDXRenderer>{post.body}</MDXRenderer>
-        </MDXProvider>
+        <TransposeProvider>
+          <TransposeControl />
+          <MDXProvider components={{ Chords, Lyrics, Section }}>
+            <MDXRenderer>{post.body}</MDXRenderer>
+          </MDXProvider>
+        </TransposeProvider>
 
         <hr className="my-8 bg-gray-300" style={{ height: 1 }} />
       </article>
