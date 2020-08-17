@@ -28,7 +28,7 @@ export default function AutoscrollControll() {
   }, [scrollAmount])
 
   return (
-    <div className="flex fixed right-4 bottom-4 sm:right-11 sm:bottom-11 space-x-4 items-center">
+    <div className="flex space-x-2 items-center">
       <span className="text-gray-500 text-sm">Autoscroll</span>
       <ControlButton onClick={stopScroll} disabled={isStationary}>
         <FaStopCircle className="w-8 h-8" />
@@ -36,7 +36,7 @@ export default function AutoscrollControll() {
       <ControlButton onClick={decrement} disabled={isStationary}>
         <FaMinusCircle className="w-8 h-8" />
       </ControlButton>
-      <div className="text-xl w-8 text-center">{scrollAmount}</div>
+      <div className="text-md w-6 text-center">{scrollAmount}</div>
       <ControlButton onClick={increment} disabled={scrollAmount > 9}>
         <FaPlusCircle className="w-8 h-8" />
       </ControlButton>

@@ -10,7 +10,6 @@ export default function ControlButton(
       {...props}
       className={classNames(
         props.disabled ? "text-gray-200" : "text-gray-500",
-
         "rounded-full",
         "border-4 border-transparent",
         "focus:border-teal-300"

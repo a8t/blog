@@ -32,7 +32,7 @@ export function TransposeControl() {
   const isUnison = semitones === 0
 
   return (
-    <div className="flex fixed right-4 bottom-4 sm:right-11 sm:bottom-24 space-x-4 items-center">
+    <div className="flex space-x-2 items-center">
       <span className="text-gray-500 text-sm">Transpose</span>
 
       <ControlButton onClick={reset} disabled={isUnison}>
@@ -41,7 +41,7 @@ export function TransposeControl() {
       <ControlButton onClick={decrement}>
         <FaMinusCircle className="w-8 h-8" />
       </ControlButton>
-      <div className="text-xl w-8 text-center">{semitones}</div>
+      <div className="text-md w-6 text-center">{semitones}</div>
       <ControlButton onClick={increment}>
         <FaPlusCircle className="w-8 h-8" />
       </ControlButton>
