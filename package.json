@@ -43,8 +43,10 @@
     "gatsby-transformer-sharp": "^2.5.7",
     "postcss-nested": "^4.2.3",
     "prismjs": "^1.20.0",
+    "query-string": "^6.13.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-form": "^4.0.1",
     "react-helmet": "^5.2.1",
     "react-icons": "^3.10.0",
     "react-scroll": "^1.8.1",
@@ -55,7 +57,8 @@
     "typeface-montserrat": "0.0.75",
     "typography": "^0.16.19",
     "typography-theme-ocean-beach": "^0.16.19",
-    "typography-theme-wordpress-2016": "^0.16.19"
+    "typography-theme-wordpress-2016": "^0.16.19",
+    "use-query-params": "^1.1.6"
   },
   "devDependencies": {
     "prettier": "2.0.5"

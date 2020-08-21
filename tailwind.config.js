@@ -1,8 +1,9 @@
 module.exports = {
   purge: ["./src/**/*.tsx"],
   theme: {},
-  variants: {},
-  plugins: [
-    require('@tailwindcss/ui'),
-  ]
+  variants: {
+    pointerEvents: ["responsive", "hover", "focus", "disabled"],
+    opacity: ["responsive", "hover", "focus", "disabled"],
+  },
+  plugins: [require("@tailwindcss/ui")],
 }
