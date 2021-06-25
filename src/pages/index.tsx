@@ -7,6 +7,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Listing from "../components/listing"
 import Header from "../components/header"
+import MainBio from "../components/mainBio"
 
 const SeeAll = ({ to }) => (
   <Link
@@ -25,6 +26,8 @@ const Homepage = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="April Theses" />
+
+      <MainBio />
 
       <section className="md:grid grid-cols-2 gap-16">
         {[
