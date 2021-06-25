@@ -1,7 +1,7 @@
 import Typography from "typography"
-import oceanBeach from "typography-theme-ocean-beach"
+import theme from "typography-theme-parnassus"
 
-oceanBeach.overrideThemeStyles = () => {
+theme.overrideThemeStyles = () => {
   return {
     a: {
       boxShadow: `none`,
@@ -16,7 +16,7 @@ oceanBeach.overrideThemeStyles = () => {
   }
 }
 
-const typography = new Typography(oceanBeach)
+const typography = new Typography(theme)
 
 // Hot reload typography in development.
 if (process.env.NODE_ENV !== `production`) {
