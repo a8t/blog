@@ -38,9 +38,9 @@ const Bio = () => {
         style={{ minWidth: 80 }}
       />
       <p className="text-gray-500 ml-4">
-        Written by
+        Written by{" "}
         <a href="mailto:me@andytran.ca">
-          <strong> {author.name}</strong>
+          <strong>{author.name}</strong>
         </a>
         . All thoughts posted here are mine, and are not indicative of positions
         held by any organization or group I affiliate with.

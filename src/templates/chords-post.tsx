@@ -34,9 +34,10 @@ const ChordsPostTemplate = ({
       <article>
         <header className="mb-4">
           <p className="my-4 block text-sm text-gray-500">
-            {post.frontmatter.date}
+            <Link to="/">april theses</Link> /{" "}
+            <Link to="/chords">chord sheets</Link> • {post.frontmatter.date}
           </p>
-          <h1 className="text-4xl text-gray-900">{post.frontmatter.title}</h1>
+          <h1 className="text-4xl text-teal-700">{post.frontmatter.title}</h1>
         </header>
         <hr className="mb-8 bg-gray-300" style={{ height: 1 }} />
 

@@ -23,9 +23,10 @@ const BlogPostTemplate = ({ data: { post, site }, pageContext, location }) => {
       <article>
         <header className="mb-4">
           <p className="my-4 block text-sm text-gray-500">
-            {post.frontmatter.date}
+            <Link to="/">april theses</Link> /{" "}
+            <Link to="/blog">blog posts</Link> • {post.frontmatter.date}
           </p>
-          <h1 className="text-4xl text-gray-900 font-extrabold leading-tight">
+          <h1 className="text-4xl text-teal-700 font-extrabold leading-tight">
             {post.frontmatter.title}
           </h1>
 

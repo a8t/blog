@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import Image from "gatsby-image"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -15,7 +16,18 @@ const ChordsIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All chords" />
-      <Header subtitle="chord sheets" />
+      <section className="sm:flex flex-row-reverse items-end justify-between">
+        <div className="hidden sm:block">
+          <Image
+            fixed={data.avatar.childImageSharp.fixed}
+            alt="Andy on guitar"
+            style={{ width: 200 }}
+            imgStyle={{ objectFit: "contain", height: 200 }}
+          />
+        </div>
+
+        <Header subtitle="chord sheets" />
+      </section>
 
       <section className="pb-8">
         <hr style={{ height: 1 }} className="mb-4" />
@@ -62,6 +74,13 @@ export const pageQuery = graphql`
             title
             description
           }
+        }
+      }
+    }
+    avatar: file(absolutePath: { regex: "/guitar.png/" }) {
+      childImageSharp {
+        fixed(width: 200, height: 200) {
+          ...GatsbyImageSharpFixed
         }
       }
     }

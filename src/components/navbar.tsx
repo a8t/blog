@@ -4,6 +4,19 @@ import { FaPencilAlt, FaMusic } from "react-icons/fa"
 import Hat from "./hat"
 import { Link } from "gatsby"
 
+const NavbarLink = ({ to, children }) => {
+  return (
+    <Link
+      to={to}
+      className="no-underline text-base leading-6 font-medium text-teal-500 hover:text-teal-600 focus:outline-none focus:text-teal-700 transition ease-in-out duration-100"
+      activeClassName="font-extrabold"
+      partiallyActive
+    >
+      {children}
+    </Link>
+  )
+}
+
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   return (
@@ -37,18 +50,8 @@ export default function Navbar() {
             </button>
           </div>
           <nav className="hidden md:flex space-x-10">
-            <Link
-              to="/blog"
-              className="text-base leading-6 font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition ease-in-out duration-150"
-            >
-              Blog
-            </Link>
-            <Link
-              to="/chords"
-              className="text-base leading-6 font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition ease-in-out duration-150"
-            >
-              Chord sheets
-            </Link>
+            <NavbarLink to="/blog">Blog</NavbarLink>
+            <NavbarLink to="/chords">Chord sheets</NavbarLink>
           </nav>
         </div>
         {/*
