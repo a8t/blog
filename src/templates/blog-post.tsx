@@ -36,7 +36,7 @@ const BlogPostTemplate = ({ data: { post, site }, pageContext, location }) => {
         </header>
         <hr className="mb-8 bg-gray-300" style={{ height: 1 }} />
 
-        <div className="prose prose-sm sm:prose lg:prose-lg xl:prose-xl">
+        <div className="prose prose-sm sm:prose lg:prose-lg">
           <MDXProvider components={{ Separator }}>
             <MDXRenderer>{post.body}</MDXRenderer>
           </MDXProvider>

@@ -3,7 +3,19 @@
 @import "tailwindcss/components";
 
 a {
-  @apply text-teal-700 underline;
+  @apply text-teal-500 underline;
+}
+
+.prose a {
+  @apply text-teal-500 underline !important;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5 {
+  @apply text-cool-gray-500 !important;
 }
 
 @import "tailwindcss/utilities";
