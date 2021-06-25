@@ -8,6 +8,7 @@ module.exports = {
     siteUrl: `https://blog.andytran.ca`,
   },
   plugins: [
+    `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

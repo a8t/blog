@@ -1,6 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
+import { StaticImage } from "gatsby-plugin-image"
 import { Github, LinkedIn, Mail, Twitter } from "./icons"
 
 const MainBio = () => {
@@ -8,9 +8,7 @@ const MainBio = () => {
     query MainBioQuery {
       avatar: file(absolutePath: { regex: "/waving.png/" }) {
         childImageSharp {
-          fixed(width: 308, height: 534) {
-            ...GatsbyImageSharpFixed
-          }
+          gatsbyImageData(layout: FIXED)
         }
       }
       site {
@@ -26,12 +24,13 @@ const MainBio = () => {
   const { author } = data.site.siteMetadata
   return (
     <header className="mb-12 sm:mt-12 p-2 flex flex-col items-center sm:flex-row sm:space-x-4">
-      <Image
-        fixed={data.avatar.childImageSharp.fixed}
-        alt={author.name}
-        style={{ height: 300 }}
-        imgStyle={{ objectFit: "contain", height: 300 }}
-      />
+      <div className="w-48 sm:w-2/3">
+        <StaticImage
+          src="../images/waving.png"
+          alt={author.name}
+          placeholder="tracedSVG"
+        />
+      </div>
       <section className="max-w-lg flex flex-col py-4">
         <h1 className="text-3xl sm:text-5xl text-teal-700 font-black mb-4">
           Hi, I'm Andy.
