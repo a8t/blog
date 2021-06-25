@@ -8,7 +8,7 @@ function Hat(props: React.SVGProps<SVGSVGElement>) {
           ".prefix__st3,.prefix__st8{fill:none;stroke:#080808;stroke-width:.75;stroke-miterlimit:10}.prefix__st8{fill:#92b2b6;stroke:#231f20;stroke-width:.25}.prefix__st9{fill:#0c2b2d}.prefix__st11,.prefix__st13,.prefix__st17{fill:none;stroke-miterlimit:10}.prefix__st11{stroke:#231f20;stroke-width:2}.prefix__st13,.prefix__st17{stroke:#080808}.prefix__st17{stroke:#191919}.prefix__st22{stroke:#080808;stroke-width:2}.prefix__st22,.prefix__st27,.prefix__st29{fill:none;stroke-miterlimit:10}.prefix__st27{stroke:#080808;stroke-width:.5}.prefix__st29{stroke:#231f20}"
         }
       </style>
-      <title>{"hatnewbold2noshadows"}</title>
+      <title>{"April Theses | Andy Tran's Blog"}</title>
       <defs>
         <path id="prefix__d" d="M.2 231.8h.3l-.3.2z" />
       </defs>

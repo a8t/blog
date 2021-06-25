@@ -8,7 +8,7 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   return (
     <>
-      <div className="relative bg-white  top-0 shadow-md z-10">
+      <div className="relative top-0 z-10">
         <div className="container m-auto flex justify-between items-center px-4 py-4 sm:px-6 sm:justify-start md:space-x-10">
           <div className="lg:w-0 flex-1">
             <Link to="/" className="flex">
@@ -38,16 +38,16 @@ export default function Navbar() {
           </div>
           <nav className="hidden md:flex space-x-10">
             <Link
-              to="/chords"
-              className="text-base leading-6 font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition ease-in-out duration-150"
-            >
-              Chord sheets
-            </Link>
-            <Link
               to="/blog"
               className="text-base leading-6 font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition ease-in-out duration-150"
             >
               Blog
+            </Link>
+            <Link
+              to="/chords"
+              className="text-base leading-6 font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition ease-in-out duration-150"
+            >
+              Chord sheets
             </Link>
           </nav>
         </div>

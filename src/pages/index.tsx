@@ -11,10 +11,10 @@ import Header from "../components/header"
 const SeeAll = ({ to }) => (
   <Link
     to={to}
-    className="group text-sm text-gray-500 hover:text-gray-900 italic"
+    className="no-underline group text-sm text-gray-500 hover:text-gray-900 italic"
   >
     <span className="group-hover:underline">See all</span>
-    <span className="ml-3 no-underline">→</span>
+    <span className="ml-3">→</span>
   </Link>
 )
 
@@ -25,25 +25,23 @@ const Homepage = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="April Theses" />
-      <Header />
 
-      <section className="md:grid grid-cols-2">
+      <section className="md:grid grid-cols-2 gap-16">
         {[
-          ["chords", chordPosts],
-          ["blog", blogPosts],
-        ].map(([type, { nodes }]) => (
+          ["blog posts", blogPosts, "blog"],
+          ["chord sheets", chordPosts, "chords"],
+        ].map(([type, { nodes }, url]) => (
           <section className="pb-8">
             <hr style={{ height: 1 }} className="mb-4" />
             <header className="text-sm text-gray-500 mb-8 flex sm:block">
               <span>
                 Recent{" "}
-                <Link to={type} className="font-bold">
-                  {type}{" "}
+                <Link to={url} className="font-bold">
+                  {type}
                 </Link>
-                posts
               </span>
               <div className="ml-auto sm:hidden">
-                <SeeAll to={type} />
+                <SeeAll to={url} />
               </div>
             </header>
             {nodes.slice(0, 3).map(node => (
@@ -55,12 +53,11 @@ const Homepage = ({ data, location }) => {
               />
             ))}
             <footer className="hidden sm:block">
-              <SeeAll to={type} />
+              <SeeAll to={url} />
             </footer>
           </section>
         ))}
       </section>
-      <Bio />
     </Layout>
   )
 }
