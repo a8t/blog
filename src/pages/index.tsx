@@ -37,12 +37,7 @@ const Homepage = ({ data, location }) => {
           <section className="pb-8">
             <hr style={{ height: 1 }} className="mb-4" />
             <header className="text-sm text-gray-500 mb-8 flex sm:block">
-              <span>
-                Recent{" "}
-                <Link to={url} className="font-bold">
-                  {type}
-                </Link>
-              </span>
+              <span>Recent {type}</span>
               <div className="ml-auto sm:hidden">
                 <SeeAll to={url} />
               </div>
@@ -53,6 +48,7 @@ const Homepage = ({ data, location }) => {
                 title={node.frontmatter.title || node.fields.slug}
                 date={node.frontmatter.date}
                 content={node.frontmatter.description || node.excerpt}
+                categories={node.frontmatter.categories}
               />
             ))}
             <footer className="hidden sm:block">
@@ -89,6 +85,7 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           title
           description
+          categories
         }
       }
     }
