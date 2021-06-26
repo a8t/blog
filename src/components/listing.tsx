@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import { FaFolder } from "react-icons/fa"
+import CategoriesList from "./CategoriesList"
 
 export default function Listing({
   date,
@@ -20,7 +20,7 @@ export default function Listing({
       <header className="mb-3">
         <small className="block text-xs mb-2 text-gray-500">
           {date}
-          {categories ? <Categories categories={categories} /> : null}
+          {categories ? <CategoriesList categories={categories} /> : null}
         </small>
         <h3 className="text-xl text-gray-600 hover:text-gray-400 font-extrabold leading-tight">
           <Link to={to}>{title}</Link>
@@ -35,17 +35,5 @@ export default function Listing({
         />
       </section>
     </article>
-  )
-}
-
-const Categories = ({ categories }) => {
-  return (
-    <span>
-      {" "}
-      • <FaFolder className="inline mr-0.5 opacity-60" />{" "}
-      {categories.map(category => (
-        <Link to={`categories/${category}`}>{category}</Link>
-      ))}
-    </span>
   )
 }

@@ -2,17 +2,19 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import classNames from "classnames"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Separator from "../components/separator"
 import PrevNext from "../components/PrevNext"
+import CategoriesList from "../components/CategoriesList"
 
 const BlogPostTemplate = ({ data: { post, site }, pageContext, location }) => {
   const siteTitle = site.siteMetadata.title
   const { previous, next } = pageContext
+
+  const { categories } = post.frontmatter
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -24,7 +26,9 @@ const BlogPostTemplate = ({ data: { post, site }, pageContext, location }) => {
         <header className="mb-4">
           <p className="my-4 block text-sm text-gray-500">
             <Link to="/">april theses</Link> /{" "}
-            <Link to="/blog">blog posts</Link> • {post.frontmatter.date}
+            <Link to="/blog">blog posts</Link>
+            {categories && <CategoriesList categories={categories} />} •{" "}
+            {post.frontmatter.date}
           </p>
           <h1 className="text-4xl text-teal-700 font-extrabold leading-tight">
             {post.frontmatter.title}
@@ -77,6 +81,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        categories
       }
     }
   }
