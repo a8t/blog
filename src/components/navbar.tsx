@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { FaPencilAlt, FaMusic } from "react-icons/fa"
+import { FaPencilAlt, FaMusic, FaPersonBooth, FaUser } from "react-icons/fa"
 
 import Hat from "./hat"
 import { Link } from "gatsby"
@@ -13,6 +13,22 @@ const NavbarLink = ({ to, children }) => {
       partiallyActive
     >
       {children}
+    </Link>
+  )
+}
+
+const MobileNavbarLink = ({ to, children, icon }) => {
+  return (
+    <Link
+      to={to}
+      className="-m-3 p-3 flex items-center space-x-4 rounded-lg hover:bg-gray-50 transition ease-in-out duration-150"
+    >
+      <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-teal-700 text-white">
+        {icon({ width: 24 })}
+      </div>
+      <div className="text-base leading-6 font-medium text-gray-900">
+        {children}
+      </div>
     </Link>
   )
 }
@@ -50,6 +66,7 @@ export default function Navbar() {
             </button>
           </div>
           <nav className="hidden md:flex space-x-10">
+            <NavbarLink to="/about-me">About me</NavbarLink>
             <NavbarLink to="/blog">Blog</NavbarLink>
             <NavbarLink to="/chords">Chord sheets</NavbarLink>
           </nav>
@@ -97,28 +114,15 @@ export default function Navbar() {
                   </div>
                   <div>
                     <nav className="grid grid-cols-1 gap-7">
-                      <Link
-                        to="/blog"
-                        className="-m-3 p-3 flex items-center space-x-4 rounded-lg hover:bg-gray-50 transition ease-in-out duration-150"
-                      >
-                        <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-teal-700 text-white">
-                          <FaPencilAlt width={24} />
-                        </div>
-                        <div className="text-base leading-6 font-medium text-gray-900">
-                          Posts
-                        </div>
-                      </Link>
-                      <Link
-                        to="/chords"
-                        className="-m-3 p-3 flex items-center space-x-4 rounded-lg hover:bg-gray-50 transition ease-in-out duration-150"
-                      >
-                        <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-teal-700 text-white">
-                          <FaMusic width={24} />
-                        </div>
-                        <div className="text-base leading-6 font-medium text-gray-900">
-                          Chords
-                        </div>
-                      </Link>
+                      <MobileNavbarLink icon={FaUser} to="/about-me">
+                        About me
+                      </MobileNavbarLink>
+                      <MobileNavbarLink icon={FaPencilAlt} to="/blog">
+                        Blog
+                      </MobileNavbarLink>
+                      <MobileNavbarLink icon={FaMusic} to="/chords">
+                        Chords
+                      </MobileNavbarLink>
                     </nav>
                   </div>
                 </div>
