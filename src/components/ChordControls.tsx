@@ -6,13 +6,23 @@ import Button from "./Button"
 
 export default function ControlMenu({ children }) {
   const [isOpen, setIsOpen] = useState(true)
-  const ref = useRef(null)
-  useClickAway(ref, () => setIsOpen(false))
+
+  // hide the container when clicking outside of it
+  // but only if the button to re-open it is visible
+  const containerRef = useRef(null)
+  const buttonRef = useRef(null)
+  const isCogButtonVisible = buttonRef?.current?.offsetParent // https://stackoverflow.com/a/21696585
+
+  useClickAway(containerRef, () => {
+    if (isCogButtonVisible) {
+      setIsOpen(false)
+    }
+  })
 
   return (
     <>
       <div
-        ref={ref}
+        ref={containerRef}
         className={classNames(
           "fixed right-4 bottom-4 sm:right-11 sm:bottom-11",
           "flex flex-col space-y-2 items-end",
@@ -36,7 +46,9 @@ export default function ControlMenu({ children }) {
           "lg:hidden"
         )}
       >
-        <FaCogs className="w-8 h-8 text-gray-400" />
+        <div ref={buttonRef}>
+          <FaCogs className="w-8 h-8 text-gray-400" />
+        </div>
       </Button>
     </>
   )
