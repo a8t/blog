@@ -37,7 +37,7 @@ export default function AutoscrollControll() {
         <FaMinusCircle className="w-8 h-8" />
       </ControlButton>
       <div className="text-md w-6 text-center">{scrollAmount}</div>
-      <ControlButton onClick={increment} disabled={scrollAmount > 9}>
+      <ControlButton onClick={increment} disabled={scrollAmount > 19}>
         <FaPlusCircle className="w-8 h-8" />
       </ControlButton>
     </div>
