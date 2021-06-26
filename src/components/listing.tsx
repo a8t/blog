@@ -16,7 +16,7 @@ export default function Listing({
   categories?: string[]
 }) {
   return (
-    <article className="mb-12">
+    <article className="mb-12 md:mb-4 md:h-44 md:bg-cool-gray-100 md:p-4 rounded-sm">
       <header className="mb-3">
         <small className="block text-xs mb-2 text-gray-500">
           {date}
