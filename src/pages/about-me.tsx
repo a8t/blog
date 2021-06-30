@@ -18,8 +18,8 @@ const MainBio = ({ data }) => {
   const { author } = data.site.siteMetadata
 
   return (
-    <header className="mb-12 flex flex-col sm:flex-row sm:space-x-4 items-end relative">
-      <section className="max-w-lg flex flex-col">
+    <header className="mb-12 flex flex-col-reverse sm:flex-row sm:space-x-4 items-center sm:items-end relative">
+      <section className="max-w-lg flex flex-col ">
         <div className="prose prose-sm sm:prose">
           <MDXProvider components={{ Separator }}>
             <MDXRenderer>{data.post.body}</MDXRenderer>
@@ -27,7 +27,7 @@ const MainBio = ({ data }) => {
         </div>
         <SocialButtons />
       </section>
-      <div className="w-48 sticky bottom-12">
+      <div className="w-48 pb-12 sm:sticky sm:bottom-0">
         <StaticImage
           src="../images/waving.png"
           alt={author.name}
