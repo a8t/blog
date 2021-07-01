@@ -1,23 +1,36 @@
-import React, { useState, useRef } from "react"
-import { useClickAway } from "react-use"
+import React, { useState, useRef, useCallback, useEffect } from "react"
+import { useClickAway, useWindowSize } from "react-use"
 import classNames from "classnames"
 import { FaTimes, FaCogs } from "react-icons/fa"
 import Button from "./Button"
 
 export default function ControlMenu({ children }) {
+  // if the window size changes, re-render
+  useWindowSize()
+
   const [isOpen, setIsOpen] = useState(true)
 
-  // hide the container when clicking outside of it
-  // but only if the button to re-open it is visible
   const containerRef = useRef(null)
   const buttonRef = useRef(null)
   const isCogButtonVisible = buttonRef?.current?.offsetParent // https://stackoverflow.com/a/21696585
 
-  useClickAway(containerRef, () => {
+  const maybeCloseWhenClickingOutsideContainer = useCallback(() => {
     if (isCogButtonVisible) {
       setIsOpen(false)
     }
-  })
+  }, [isCogButtonVisible])
+
+  // close the container when clicking outside of it
+  // but only if the button to re-open it is visible
+  useClickAway(containerRef, maybeCloseWhenClickingOutsideContainer)
+
+  // if the container is closed but we extend the screen thereby hiding the button,
+  // open the container
+  useEffect(() => {
+    if (!isCogButtonVisible) {
+      setIsOpen(true)
+    }
+  }, [isCogButtonVisible])
 
   return (
     <>
