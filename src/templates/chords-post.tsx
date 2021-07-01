@@ -13,7 +13,7 @@ import {
   TransposeControl,
 } from "../components/chords"
 import AutoscrollControl from "../components/AutoscrollControl"
-import ChordControls from "../components/ChordControls"
+import ControlMenu from "../components/ControlMenu"
 import PrevNext from "../components/PrevNext"
 
 const ChordsPostTemplate = ({
@@ -42,10 +42,10 @@ const ChordsPostTemplate = ({
         <hr className="mb-8 bg-gray-300" style={{ height: 1 }} />
 
         <TransposeProvider>
-          <ChordControls>
+          <ControlMenu>
             <AutoscrollControl />
             <TransposeControl />
-          </ChordControls>
+          </ControlMenu>
           <MDXProvider components={{ Chords, Lyrics, Section }}>
             <MDXRenderer>{post.body}</MDXRenderer>
           </MDXProvider>
