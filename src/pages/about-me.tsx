@@ -21,7 +21,7 @@ const MainBio = ({ data }) => {
     <header className="mb-12 flex flex-col-reverse sm:flex-row sm:space-x-4 items-center sm:items-end relative">
       <section className="max-w-lg flex flex-col ">
         <div className="prose prose-sm sm:prose">
-          <MDXProvider components={{ Separator }}>
+          <MDXProvider components={{ hr: Separator }}>
             <MDXRenderer>{data.post.body}</MDXRenderer>
           </MDXProvider>
         </div>
