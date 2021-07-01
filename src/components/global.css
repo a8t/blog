@@ -29,3 +29,15 @@ a {
     @apply text-5xl;
   }
 }
+
+a.anchor {
+  top: 0.35em;
+  left: -0.85em;
+  position: absolute;
+
+  @apply opacity-0 hover:opacity-100 transition-opacity duration-150;
+}
+
+html {
+  scroll-padding-top: 2em;
+}

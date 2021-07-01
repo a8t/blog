@@ -37,28 +37,6 @@ module.exports = {
         name: `assets`,
       },
     },
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 590,
-            },
-          },
-          {
-            resolve: `gatsby-remark-responsive-iframe`,
-            options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
-            },
-          },
-          `gatsby-remark-prismjs`,
-          `gatsby-remark-copy-linked-files`,
-          `gatsby-remark-smartypants`,
-        ],
-      },
-    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -101,6 +79,21 @@ module.exports = {
             },
           },
           `gatsby-remark-copy-linked-files`,
+          {
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              removeAccents: true,
+              enableCustomId: true,
+            },
+          },
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              // If setting this to true, the parser won't handle and highlight inline
+              // code used in markdown i.e. single backtick code like `this`.
+              noInlineHighlight: true,
+            },
+          },
         ],
       },
     },
