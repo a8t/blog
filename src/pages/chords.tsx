@@ -26,14 +26,14 @@ const ChordsIndex = ({ data, location }) => {
           />
         </div>
 
-        <Header subtitle="chord sheets" />
+        <Header subtitle="chord charts" />
       </section>
 
       <section className="pb-8">
         <hr style={{ height: 1 }} className="mb-4" />
         <header className="text-sm text-gray-500 mb-8 flex sm:block">
           <span>
-            A collection of chord sheets for some of my favourite songs.
+            A collection of chord charts for some of my favourite songs.
           </span>
         </header>
         {posts.map(({ node }) => (

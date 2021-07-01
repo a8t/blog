@@ -32,7 +32,7 @@ const Homepage = ({ data, location }) => {
       <section className="md:grid grid-cols-2 gap-16">
         {[
           ["blog posts", blogPosts, "blog"],
-          ["chord sheets", chordPosts, "chords"],
+          ["chord charts", chordPosts, "chords"],
         ].map(([type, { nodes }, url]) => (
           <section className="pb-8">
             <hr style={{ height: 1 }} className="mb-4" />

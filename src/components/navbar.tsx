@@ -68,7 +68,7 @@ export default function Navbar() {
           <nav className="hidden md:flex space-x-10">
             <NavbarLink to="/about-me">About me</NavbarLink>
             <NavbarLink to="/blog">Blog</NavbarLink>
-            <NavbarLink to="/chords">Chord sheets</NavbarLink>
+            <NavbarLink to="/chords">Chord charts</NavbarLink>
           </nav>
         </div>
         {/*

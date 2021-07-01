@@ -35,7 +35,7 @@ const ChordsPostTemplate = ({
         <header className="mb-4">
           <p className="my-4 block text-sm text-gray-500">
             <Link to="/">april theses</Link> /{" "}
-            <Link to="/chords">chord sheets</Link> • {post.frontmatter.date}
+            <Link to="/chords">chord charts</Link> • {post.frontmatter.date}
           </p>
           <h1 className="text-4xl text-teal-700">{post.frontmatter.title}</h1>
         </header>
