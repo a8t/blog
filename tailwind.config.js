@@ -1,5 +1,5 @@
 module.exports = {
-  purge: ["./src/**/*.tsx"],
+  purge: ["./src/**/*.tsx", "./content/**/*.mdx"],
   theme: {
     fontSize: {
       xxs: ".5rem",
