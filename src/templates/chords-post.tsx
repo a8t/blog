@@ -3,6 +3,7 @@ import { Link, graphql } from "gatsby"
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
+import Separator from "../components/separator"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import {
@@ -38,19 +39,25 @@ const ChordsPostTemplate = ({
             <Link to="/chords">chord charts</Link> • {post.frontmatter.date}
           </p>
           <h1 className="text-4xl text-teal-700">{post.frontmatter.title}</h1>
+          <p className="italic mb-8 mt-6 text-gray-500">
+            {post.frontmatter.description}
+          </p>
         </header>
         <hr className="mb-8 bg-gray-300" style={{ height: 1 }} />
 
-        <TransposeProvider>
-          <ControlMenu>
-            <AutoscrollControl />
-            <TransposeControl />
-          </ControlMenu>
-          <MDXProvider components={{ Chords, Lyrics, Section }}>
-            <MDXRenderer>{post.body}</MDXRenderer>
-          </MDXProvider>
-        </TransposeProvider>
-
+        <div className="prose prose-sm sm:prose lg:prose-lg">
+          <TransposeProvider>
+            <ControlMenu>
+              <AutoscrollControl />
+              <TransposeControl />
+            </ControlMenu>
+            <MDXProvider
+              components={{ Chords, Lyrics, Section, hr: Separator }}
+            >
+              <MDXRenderer>{post.body}</MDXRenderer>
+            </MDXProvider>
+          </TransposeProvider>
+        </div>
         <hr className="my-8 bg-gray-300" style={{ height: 1 }} />
       </article>
 
