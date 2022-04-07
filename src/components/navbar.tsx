@@ -1,5 +1,11 @@
 import React, { useState } from "react"
-import { FaPencilAlt, FaMusic, FaPersonBooth, FaUser } from "react-icons/fa"
+import {
+  FaPencilAlt,
+  FaMusic,
+  FaPersonBooth,
+  FaUser,
+  FaEnvelope,
+} from "react-icons/fa"
 
 import Hat from "./hat"
 import { Link } from "gatsby"
@@ -69,6 +75,7 @@ export default function Navbar() {
             <NavbarLink to="/about-me">About me</NavbarLink>
             <NavbarLink to="/blog">Blog</NavbarLink>
             <NavbarLink to="/chords">Chord charts</NavbarLink>
+            <NavbarLink to="/contact">Contact</NavbarLink>
           </nav>
         </div>
         {/*
@@ -122,6 +129,9 @@ export default function Navbar() {
                       </MobileNavbarLink>
                       <MobileNavbarLink icon={FaMusic} to="/chords">
                         Chords
+                      </MobileNavbarLink>
+                      <MobileNavbarLink icon={FaEnvelope} to="/contact">
+                        Contact
                       </MobileNavbarLink>
                     </nav>
                   </div>
