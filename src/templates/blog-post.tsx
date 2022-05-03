@@ -9,6 +9,7 @@ import SEO from "../components/seo"
 import Separator from "../components/separator"
 import PrevNext from "../components/PrevNext"
 import CategoriesList from "../components/CategoriesList"
+import FlickrScript from "../components/FlickrScript"
 
 const BlogPostTemplate = ({ data: { post, site }, pageContext, location }) => {
   const siteTitle = site.siteMetadata.title
@@ -41,7 +42,7 @@ const BlogPostTemplate = ({ data: { post, site }, pageContext, location }) => {
         <hr className="mb-8 bg-gray-300" style={{ height: 1 }} />
 
         <div className="prose prose-sm sm:prose lg:prose-lg">
-          <MDXProvider components={{ hr: Separator }}>
+          <MDXProvider components={{ hr: Separator, FlickrScript }}>
             <MDXRenderer>{post.body}</MDXRenderer>
           </MDXProvider>
         </div>
