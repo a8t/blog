@@ -1,0 +1,61 @@
+---
+title: Configuring Elixir's ExAws with Req and Storj
+date: "2023-09-23T19:27:32Z"
+description: ""
+categories: ["tech", "elixir"]
+---
+
+I pulled `ExAws` into an Elixir project recently. The app is [Relinker](https://relinker.app).
+I intend to use cloud object storage for OpenGraph preview images for websites.
+
+I've used `ExAws` before in other projects at work, but I wasn't the one who had to do the setup.
+Along the way, I found that configuring `ExAws` was not easy to get right at first.
+
+## Motivation
+
+I wanted two unrelated things:
+
+- I wanted to configure the [HTTP client](https://hexdocs.pm/ex_aws/ExAws.Request.HttpClient.html) to use [Req](https://hexdocs.pm/req/readme.html) instead of the default Hackney, since I already had Req listed as a dependency.
+- Instead of S3, I wanted to connect to [Storj](https://www.storj.io/) which
+  [boasts an S3-compatible API](https://docs.storj.io/dcs/api/s3/s3-compatibility)
+  because the free tier for Storj (25gb storage, 25gb/month egress) is really attractive for my pet project.
+
+## Config
+
+Here's where I landed after much trial:
+
+```elixir
+config :ex_aws,
+  http_client: ExAws.Request.Req,
+  access_key_id: [{:system, "STORJ_ACCESS_KEY"}, :instance_role],
+  secret_access_key: [{:system, "STORJ_SECRET_KEY"}, :instance_role]
+
+config :ex_aws, :s3,
+  scheme: "https://",
+  host: "gateway.storjshare.io"
+```
+
+## As a library consumer...
+
+I think that documentation for how to configure `ex_aws` could be improved.
+In this vein, I submitted a [tiny PR](https://github.com/ex-aws/ex_aws/pull/995/files)
+to improve the docs for configuring the HTTP client. But more is needed.
+
+Here's what I learned through trial-and-error:
+
+- The above config cannot be runtime config. It must be build-time. In other words, put it in (e.g.) `config.exs`, not `runtime.exs`
+- You need to keep those lists of tuples and atoms in the access key fields. They're actually meaningful.
+- Putting those two ideas together: `ExAws` has a concept of _refreshable_ config, which change at runtime. But that doesn't mean runtime config; `ExAws` uses the configuration to understand when and how to access _environment variables_.
+
+The `:system` and `:instance_role` stuff that you see above is deep in the library's config-parsing and env-var grabbing logic. But, these concepts are currently necessary for developers to interact with, _all the way in userland config_. In other words, it's really a public API (at the moment).
+
+This wasn't apparent to me at all while approaching `ExAws` for the first time.
+Now that I've done it, it's making more sense, but I still think that it could be made more clear.
+Since the docs are open-source, I will take a deeper look in the near future.
+
+## Disclaimer
+
+Just to be clear, I'm not raising these as criticisms of community library maintainers,
+which I know is a totally thankless job.
+
+I am simply documenting my experience, in case it is useful for myself or others.
